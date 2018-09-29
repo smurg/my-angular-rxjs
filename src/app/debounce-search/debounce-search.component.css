@@ -1,0 +1,12 @@
+.mat-list .mat-list-item {
+  height: 50px;
+}
+
+.mat-list .mat-divider.mat-divider-short {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.mat-list {
+  width: 30%;
+}

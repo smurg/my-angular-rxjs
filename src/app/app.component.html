@@ -1,14 +1,24 @@
 <mat-toolbar color="primary">
-  {{title}}
+  <mat-toolbar-row>
+    <span routerLink="/" class="clickable">{{title}}</span>
+    <span class="example-spacer"></span>
+    <mat-icon [matMenuTriggerFor]="menu" class="example-icon">menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/mysearch">Debounce Search</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <!--
+      mat-icon will create this HTML element:
+        <i class="material-icons">
+          menu
+        </i>
+    -->
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <section>
- <mat-form-field>
-    <input matInput type="search" placeholder="search" [(ngModel)]='searchTerm'
-          (ngModelChange)='newSearch(searchTerm)'>
- </mat-form-field>
- <div *ngFor="let result of results | async">
-   {{result}}
- </div>
+  <router-outlet>
+    <!-- this is where the Angular Router will insert components matching the current path -->
+  </router-outlet>
 </section>
 
